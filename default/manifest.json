@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "eastmoney-data-extractor",
+    "version": "1.1",
+    "description": "fetchDataScripts",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "downloads" 
+    ],
+    "content_scripts": [
+        {
+            "matches": ["https://m.chinaclear.cn/*"],
+            "js": ["chinaclear_content.js"],
+            "run_at": "document_end" 
+        },
+        {
+            "matches": ["https://data.eastmoney.com/*"],
+            "js": ["content.js"],
+            "run_at": "document_end" 
+        }   
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    } 
+}
+
+ 
